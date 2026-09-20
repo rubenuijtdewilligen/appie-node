@@ -1,8 +1,12 @@
+import { AuthFlow } from "./auth.js";
+
 export class AppieClient {
+  public auth: AuthFlow;
   private token: string | null = null;
   private readonly API_URL = "https://api.ah.nl";
 
   constructor(token?: string) {
+    this.auth = new AuthFlow(this);
     if (token) this.token = token;
   }
 
@@ -16,7 +20,10 @@ export class AppieClient {
   ): Promise<T> {
     const headers: Record<string, string> = {
       "x-application": "AHWEBSHOP",
-      "User-Agent": "Appie/8.22.3",
+      "User-Agent":
+        "Appie/9.28 (iPhone17,3; iPhone; CPU OS 26_1 like Mac OS X)",
+      "x-client-name": "appie-ios",
+      "x-client-version": "9.28",
       "Content-Type": "application/json",
       Accept: "application/json",
       ...(options.headers as Record<string, string>),
@@ -34,7 +41,7 @@ export class AppieClient {
     if (!response.ok) {
       const errorText = await response.text();
       throw new Error(
-        `API Error ${response.status} op ${endpoint}: ${errorText}`,
+        `API Error ${response.status} on ${endpoint}: ${errorText}`,
       );
     }
 
