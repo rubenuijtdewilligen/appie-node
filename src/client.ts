@@ -1,12 +1,15 @@
 import { AuthFlow } from "./auth.js";
+import { ReceiptsFlow } from "./endpoints/receipts.js";
 
 export class AppieClient {
   public auth: AuthFlow;
+  public receipts: ReceiptsFlow;
   private token: string | null = null;
   private readonly API_URL = "https://api.ah.nl";
 
   constructor(token?: string) {
     this.auth = new AuthFlow(this);
+    this.receipts = new ReceiptsFlow(this);
     if (token) this.token = token;
   }
 
