@@ -12,7 +12,7 @@
 
 [x] Retrieve overview of all receipts (posReceiptsPage).
 [x] View specific receipt details (posReceiptDetails).
-[ ] Map physical POS IDs to current webshop IDs (productConvertId).
+[x] Map physical POS IDs to current webshop IDs (productConvertId).
 [ ] Download PDF version of the receipt (posReceiptPdf).
 [ ] Permanently delete receipts from history (posReceiptsDelete).
 

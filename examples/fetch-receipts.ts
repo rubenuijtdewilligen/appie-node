@@ -27,14 +27,26 @@ async function runExample() {
       `\nLatest purchase: ${latestReceipt.dateTime} (€${latestReceipt.totalAmount.amount})`,
     );
 
-    console.log(`\nFetching details for this specific receipt...`);
+    console.log(`\nFetching details of the latest receipt...`);
     const details = await appie.receipts.getById(latestReceipt.id);
+
+    const posIds = details.products.map((p) => p.id);
+
+    console.log("Translating POS IDs to Webshop IDs...");
+    const webshopMapping = await appie.products.convertPosIds(posIds);
 
     console.log("\nPurchased products:");
     details.products.forEach((product) => {
-      const unitPrice = product.price ? ` (€${product.price.amount} each)` : "";
+      const unitPrice = product.price
+        ? ` (€${product.price.amount} per unit)`
+        : "";
+      const webshopId = webshopMapping[product.id];
+      const webshopTag = webshopId
+        ? `[Webshop ID: ${webshopId}]`
+        : "[No webshop ID]";
+
       console.log(
-        `- ${product.quantity}x ${product.name} | Total: €${product.amount.amount}${unitPrice}`,
+        `- ${product.quantity}x ${product.name} | Total: €${product.amount.amount}${unitPrice} ${webshopTag}`,
       );
     });
 
