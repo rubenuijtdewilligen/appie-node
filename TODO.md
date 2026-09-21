@@ -4,7 +4,7 @@
 [x] Log in via OAuth code.
 [x] Refresh token.
 [ ] Log out (POST /mobile-auth/v1/auth/token/logout).
-[ ​​] Manage passkeys (ciamPasskeyRegisterStart, ciamPasskeyUpdate).
+[ ] Manage passkeys (ciamPasskeyRegisterStart, ciamPasskeyUpdate).
 [ ] Set up or modify Multi-Factor Authentication (MFA) (ciamUpdateMfaSetting).
 [ ] Verify phone number via SMS (ciamPhoneNumberSendCode).
 
@@ -20,8 +20,9 @@
 
 [ ] GraphQL Search: Advanced search with facets (brand, diet, Nutri-Score) (SearchProducts).
 [ ] REST Search: Enrich results to retrieve products in the Bonus (GET /.../search/v2/products).
-[ ] Retrieve product details & highlights via REST (GET /.../product/detail/v4/fir/).
-[ ] Retrieve nutritional values, ingredients, and allergens via the GraphQL tradeItem.
+[x] Retrieve product details & highlights via REST (GET /.../product/detail/v4/fir/).
+[x] Retrieve nutritional values via the GraphQL tradeItem.
+[ ] Retrieve ingredients and allergens via the GraphQL tradeItem.
 [ ] Query categories/taxonomies (store tree structure).
 [ ] Manage purchase history (Hide products from "Previously Purchased": productPurchaseHistoryHideProducts).
 
@@ -36,8 +37,8 @@
 
 [ ] Retrieve lists (v3) and view contents (v2).
 [ ] Add or check off items (via product ID or free text).
-[ ​​] Retrieve detailed shopping cart (FetchMyListBasket).
-[ ​​] Manage favorites lists (Create, share, delete: favoriteListAddV2, favoriteListShareWithSubAccountsV2).
+[ ] Retrieve detailed shopping cart (FetchMyListBasket).
+[ ] Manage favorites lists (Create, share, delete: favoriteListAddV2, favoriteListShareWithSubAccountsV2).
 
 ## Orders, Delivery & Invoices
 
@@ -52,8 +53,8 @@
 
 [ ] AH Premium / Delivery Bundle: Check status and calculate current savings (subscriptionPremiumSavingsV2, subscriptionCalculateSavings).
 [ ] Koopzegels: View current balance, reserved funds, transactions, and savings goals (purchaseStampBalance, purchaseStampSavingGoalSet).
-[ ​​] Redeem Koopzegels: Generate a one-time TOTP secret to redeem stamps (purchaseStampCreateSecret).
-[ ​​] Air Miles: View balance and transactions (milesBalance, milesTransactions), or donate to charity (milesDonate).
+[ ] Redeem Koopzegels: Generate a one-time TOTP secret to redeem stamps (purchaseStampCreateSecret).
+[ ] Air Miles: View balance and transactions (milesBalance, milesTransactions), or donate to charity (milesDonate).
 [ ] Share Koopzegels: Generate links to give away Koopzegels (stampSharingGiftLinkCreate).
 
 ## Recipes

@@ -43,3 +43,64 @@ export interface PosReceiptDetailsData {
     }>;
   };
 }
+
+export interface ProductDetailResponse {
+  productId: number;
+  productCard: ProductCard;
+  properties?: Record<string, string[]>;
+  tradeItem?: any;
+  disclaimerText?: string;
+}
+
+export interface ProductCard {
+  webshopId: number;
+  hqId: number;
+  title: string;
+  salesUnitSize?: string;
+  unitPriceDescription?: string;
+  images?: Array<{ width: number; height: number; url: string }>;
+  currentPrice?: number | null;
+  priceBeforeBonus?: number;
+  orderAvailabilityStatus?: string;
+  mainCategory?: string;
+  subCategory?: string;
+  brand?: string;
+  shopType?: string;
+  availableOnline?: boolean;
+  isPreviouslyBought?: boolean;
+  descriptionHighlights?: string;
+  descriptionFull?: string;
+  propertyIcons?: string[];
+  nutriscore?: string;
+  nix18?: boolean;
+  isBonus?: boolean;
+  isOrderable?: boolean;
+  isSample?: boolean;
+  isSponsored?: boolean;
+  isVirtualBundle?: boolean;
+  bonusMechanism?: string | null;
+  discountLabels?: Array<{
+    code: string;
+    defaultDescription: string;
+    percentage?: number;
+    price?: number;
+  }>;
+  [key: string]: any;
+}
+
+export interface Nutrient {
+  type: string;
+  name: string;
+  value: string;
+}
+
+export interface GraphQLProductData {
+  product: {
+    id: number;
+    tradeItem?: {
+      nutritions?: Array<{
+        nutrients: Array<Nutrient>;
+      }>;
+    };
+  };
+}
