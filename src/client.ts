@@ -2,12 +2,14 @@ import { AuthFlow } from "./auth.js";
 import { ReceiptsFlow } from "./endpoints/receipts.js";
 import { ProductsFlow } from "./endpoints/products.js";
 import { MemberFlow } from "./endpoints/member.js";
+import { LoyaltyFlow } from "./endpoints/loyalty.js";
 
 export class AppieClient {
   public auth: AuthFlow;
   public receipts: ReceiptsFlow;
   public products: ProductsFlow;
   public member: MemberFlow;
+  public loyalty: LoyaltyFlow;
 
   private token: string | null = null;
   private readonly API_URL = "https://api.ah.nl";
@@ -17,6 +19,7 @@ export class AppieClient {
     this.receipts = new ReceiptsFlow(this);
     this.products = new ProductsFlow(this);
     this.member = new MemberFlow(this);
+    this.loyalty = new LoyaltyFlow(this);
     if (token) this.token = token;
   }
 

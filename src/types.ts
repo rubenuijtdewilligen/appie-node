@@ -133,3 +133,21 @@ export interface MemberProfileData {
     customerProfileAudiences?: string[];
   };
 }
+
+export interface KoopzegelsBalanceData {
+  purchaseStampBalance: {
+    points: {
+      currentBookletPoints: number;
+      fullBooklets: number;
+      totalPoints: number;
+    };
+    money: {
+      invested: { amount: number };
+      interest: { amount: number };
+      payout: { amount: number };
+    };
+  };
+  purchaseStampSavingGoal?: {
+    target: string;
+  };
+}

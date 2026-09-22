@@ -51,11 +51,14 @@
 
 ## Loyalty Programs
 
-- [ ] AH Premium / Delivery Bundle: Check status and calculate current savings (subscriptionPremiumSavingsV2, subscriptionCalculateSavings).
-- [ ] Koopzegels: View current balance, reserved funds, transactions, and savings goals (purchaseStampBalance, purchaseStampSavingGoalSet).
-- [ ] Redeem Koopzegels: Generate a one-time TOTP secret to redeem stamps (purchaseStampCreateSecret).
-- [ ] Air Miles: View balance and transactions (milesBalance, milesTransactions), or donate to charity (milesDonate).
-- [ ] Share Koopzegels: Generate links to give away Koopzegels (stampSharingGiftLinkCreate).
+- [ ] AH Premium: Check status and calculate current savings (subscriptionPremiumSavingsV2).
+- [x] Koopzegels: View current balance (purchaseStampBalance).
+- [ ] Koopzegels: View transaction history (purchaseStampTransactions).
+- [ ] Koopzegels: View and set savings goals (purchaseStampSavingGoal / purchaseStampSavingGoalSet).
+- [ ] Koopzegels: Redeem stamps by generating a TOTP secret (purchaseStampCreateSecret).
+- [ ] Koopzegels: Share stamps via gift links (stampSharingGiftLinkCreate).
+- [ ] Air Miles: View balance and transactions (milesBalance, milesTransactions).
+- [ ] Air Miles: Donate to charity (milesDonate).
 
 ## Recipes
 
