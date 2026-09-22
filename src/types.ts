@@ -104,3 +104,32 @@ export interface GraphQLProductData {
     };
   };
 }
+
+export interface MemberProfileData {
+  member: {
+    id: string | number;
+    emailAddress?: string;
+    gender?: string;
+    dateOfBirth?: string;
+    phoneNumber?: string;
+    isB2B?: boolean;
+    name?: {
+      first: string;
+      last: string;
+    };
+    address?: {
+      street: string;
+      houseNumber: number | string;
+      houseNumberExtra?: string;
+      postalCode: string;
+      city: string;
+      countryCode: string;
+    };
+    cards?: {
+      bonus?: string | null;
+      gall?: string | null;
+      airmiles?: string | null;
+    };
+    customerProfileAudiences?: string[];
+  };
+}

@@ -66,7 +66,7 @@
 
 ## Profile
 
-- [ ] View customer profile, addresses, and consents/opt-ins (FetchMember).
+- [#] View customer profile, addresses, and consents/opt-ins (FetchMember).
 - [ ] Manage linked loyalty cards (Bonus, Gall&Gall, Etos) (ahMemberAddCard, ahMemberDeleteCard).
 - [ ] Set dietary and nutritional preferences (e.g., vegetarian, family composition) (recipeSaveFoodPreferencesV2).
 

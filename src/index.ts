@@ -3,3 +3,4 @@ export * from "./types.js";
 export * from "./auth.js";
 export * from "./endpoints/receipts.js";
 export * from "./endpoints/products.js";
+export * from "./endpoints/member.js";
