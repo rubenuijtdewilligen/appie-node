@@ -151,3 +151,9 @@ export interface KoopzegelsBalanceData {
     target: string;
   };
 }
+
+export interface AirMilesBalanceData {
+  milesBalance: {
+    balance: number;
+  };
+}
