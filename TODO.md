@@ -57,7 +57,7 @@
 - [ ] Koopzegels: View and set savings goals (purchaseStampSavingGoal / purchaseStampSavingGoalSet).
 - [ ] Koopzegels: Redeem stamps by generating a TOTP secret (purchaseStampCreateSecret).
 - [ ] Koopzegels: Share stamps via gift links (stampSharingGiftLinkCreate).
-- [ ] Air Miles: View balance and transactions (milesBalance, milesTransactions).
+- [x] Air Miles: View balance and transactions (milesBalance, milesTransactions).
 - [ ] Air Miles: Donate to charity (milesDonate).
 
 ## Recipes

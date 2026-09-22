@@ -157,3 +157,14 @@ export interface AirMilesBalanceData {
     balance: number;
   };
 }
+
+export interface AirMilesTransaction {
+  value: number;
+  date: string;
+  domain: string;
+  description: string;
+}
+
+export interface AirMilesTransactionsData {
+  milesTransactions: AirMilesTransaction[];
+}

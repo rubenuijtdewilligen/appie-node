@@ -1,6 +1,8 @@
 import type { AppieClient } from "../client.js";
 import type {
   AirMilesBalanceData,
+  AirMilesTransaction,
+  AirMilesTransactionsData,
   GraphQLResponse,
   KoopzegelsBalanceData,
 } from "../types.js";
@@ -63,5 +65,32 @@ export class LoyaltyFlow {
     }
 
     return response.data.milesBalance.balance;
+  }
+
+  /**
+   * Retrieves the recent Air Miles transactions.
+   */
+  public async getAirMilesTransactions(): Promise<AirMilesTransaction[]> {
+    const query = `
+      query FetchAirMilesTransactions {
+        milesTransactions {
+          date
+          domain
+          description
+          value
+        }
+      }
+    `;
+
+    const response =
+      await this.client.graphql<GraphQLResponse<AirMilesTransactionsData>>(
+        query,
+      );
+
+    if (response.errors) {
+      throw new Error(`GraphQL Error: ${response.errors[0]?.message}`);
+    }
+
+    return response.data.milesTransactions || [];
   }
 }
