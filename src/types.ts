@@ -148,7 +148,10 @@ export interface KoopzegelsBalanceData {
     };
   };
   purchaseStampSavingGoal?: {
-    target: string;
+    name: string;
+    amount: {
+      amount: number;
+    };
   };
 }
 

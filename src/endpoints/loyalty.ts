@@ -32,6 +32,12 @@ export class LoyaltyFlow {
             payout { amount }
           }
         }
+        purchaseStampSavingGoal {
+          name
+          amount {
+            amount
+          }
+        }
       }
     `;
 

@@ -54,7 +54,8 @@
 - [ ] AH Premium: Check status and calculate current savings (subscriptionPremiumSavingsV2).
 - [x] Koopzegels: View current balance (purchaseStampBalance).
 - [ ] Koopzegels: View transaction history (purchaseStampTransactions).
-- [ ] Koopzegels: View and set savings goals (purchaseStampSavingGoal / purchaseStampSavingGoalSet).
+- [x] Koopzegels: View savings goals (purchaseStampSavingGoal).
+- [ ] Koopzegels: Set savings goals (purchaseStampSavingGoalSet).
 - [ ] Koopzegels: Redeem stamps by generating a TOTP secret (purchaseStampCreateSecret).
 - [ ] Koopzegels: Share stamps via gift links (stampSharingGiftLinkCreate).
 - [x] Air Miles: View balance and transactions (milesBalance, milesTransactions).

@@ -13,9 +13,18 @@ async function runExample() {
   const appie = new AppieClient(authData.access_token);
 
   try {
-    console.log("Fetching Koopzegels balance...");
+    console.log("Fetching Koopzegels balance...\n");
     const data = await appie.loyalty.getKoopzegelsBalance();
     const balance = data.purchaseStampBalance;
+    const goal = data.purchaseStampSavingGoal;
+
+    if (goal && goal.name) {
+      console.log(
+        `Saving goal: ${goal.name} (€${goal.amount.amount.toFixed(2)})`,
+      );
+    } else {
+      console.log("Saving goal: Not set");
+    }
 
     console.log("\nBooklets & Points:");
     console.log(`- Full booklets: ${balance.points.fullBooklets}`);
