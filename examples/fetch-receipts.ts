@@ -50,7 +50,7 @@ async function runExample() {
       );
     });
 
-    if (details.discounts.length > 0) {
+    if (details.discounts && details.discounts.length > 0) {
       console.log("\nDiscounts:");
       details.discounts.forEach((discount) => {
         console.log(`- ${discount.name}: €${discount.amount.amount}`);

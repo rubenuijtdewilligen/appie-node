@@ -29,18 +29,18 @@ export interface PosReceiptDetailsData {
         amount: number;
       };
     }>;
-    discounts: Array<{
+    discounts?: Array<{
       name: string;
       amount: {
         amount: number;
       };
-    }>;
-    payments: Array<{
+    }> | null;
+    payments?: Array<{
       method: string;
       amount: {
         amount: number;
       };
-    }>;
+    }> | null;
   };
 }
 
