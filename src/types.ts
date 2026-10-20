@@ -171,3 +171,18 @@ export interface AirMilesTransaction {
 export interface AirMilesTransactionsData {
   milesTransactions: AirMilesTransaction[];
 }
+
+export interface PremiumSavingsData {
+  subscriptionPremiumSavingsV2: {
+    lastUpdated: string;
+    subscriptionStartDate: string;
+    totalSavedAmount: { amount: number };
+    bioDiscountAmount: { amount: number };
+    bonusBoxDiscountAmount: { amount: number };
+    bonusBoxDiscountPremiumExclusiveAmount: { amount: number };
+    deliveryBundleDiscountAmount: { amount: number };
+    terraDiscountAmount: { amount: number };
+    totalAdditionalStamps: number;
+    additionalAirmilesObtained: number;
+  };
+}

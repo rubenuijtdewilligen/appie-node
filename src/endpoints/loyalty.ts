@@ -5,6 +5,7 @@ import type {
   AirMilesTransactionsData,
   GraphQLResponse,
   KoopzegelsBalanceData,
+  PremiumSavingsData,
 } from "../types.js";
 
 export class LoyaltyFlow {
@@ -98,5 +99,39 @@ export class LoyaltyFlow {
     }
 
     return response.data.milesTransactions || [];
+  }
+
+  /**
+   * Retrieves the total savings accumulated through an AH Premium subscription,
+   * including discounts on organic (bio) products, Bonus Box, and delivery.
+   */
+  public async getPremiumSavings(): Promise<
+    PremiumSavingsData["subscriptionPremiumSavingsV2"]
+  > {
+    const query = `
+      query FetchPremiumSavings {
+        subscriptionPremiumSavingsV2 {
+          lastUpdated
+          subscriptionStartDate
+          totalSavedAmount { amount }
+          bioDiscountAmount { amount }
+          bonusBoxDiscountAmount { amount }
+          bonusBoxDiscountPremiumExclusiveAmount { amount }
+          deliveryBundleDiscountAmount { amount }
+          terraDiscountAmount { amount }
+          totalAdditionalStamps
+          additionalAirmilesObtained
+        }
+      }
+    `;
+
+    const response =
+      await this.client.graphql<GraphQLResponse<PremiumSavingsData>>(query);
+
+    if (response.errors) {
+      throw new Error(`GraphQL Error: ${response.errors[0]?.message}`);
+    }
+
+    return response.data.subscriptionPremiumSavingsV2;
   }
 }

@@ -51,7 +51,7 @@
 
 ## Loyalty Programs
 
-- [ ] AH Premium: Check status and calculate current savings (subscriptionPremiumSavingsV2).
+- [x] AH Premium: Check status and calculate current savings (subscriptionPremiumSavingsV2).
 - [x] Koopzegels: View current balance (purchaseStampBalance).
 - [ ] Koopzegels: View transaction history (purchaseStampTransactions).
 - [x] Koopzegels: View savings goals (purchaseStampSavingGoal).
