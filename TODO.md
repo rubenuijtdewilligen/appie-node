@@ -18,7 +18,7 @@
 
 ## Products & Search
 
-- [ ] GraphQL Search: Advanced search with facets (brand, diet, Nutri-Score) (SearchProducts).
+- [x] GraphQL Search: Advanced search with facets (brand, diet, Nutri-Score) (SearchProducts).
 - [ ] REST Search: Enrich results to retrieve products in the Bonus (GET /.../search/v2/products).
 - [x] Retrieve product details & highlights via REST (GET /.../product/detail/v4/fir/).
 - [x] Retrieve nutritional values via the GraphQL tradeItem.

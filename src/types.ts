@@ -105,6 +105,74 @@ export interface GraphQLProductData {
   };
 }
 
+export type SearchSortType = "RELEVANCE" | "PRICE_LOW_HIGH" | "PRICE_HIGH_LOW";
+
+export interface SearchFacet {
+  label: string;
+  values: {
+    values: Array<string | boolean>;
+  };
+}
+
+export interface SearchProductsInput {
+  query: string;
+  sortType?: SearchSortType;
+  page?: {
+    number?: number;
+    size?: number;
+  };
+  facets?: SearchFacet[];
+}
+
+export interface SearchProduct {
+  id: number;
+  title: string;
+  brand?: string | null;
+  category?: string | null;
+  salesUnitSize?: string | null;
+  isSponsored?: boolean | null;
+  priceV2?: {
+    now?: { amount: number } | null;
+    was?: { amount: number } | null;
+    discount?: {
+      description?: string | null;
+      promotionType?: string | null;
+      segmentType?: string | null;
+    } | null;
+  } | null;
+  imagePack?: {
+    small?: { url: string; width: number; height: number } | null;
+  } | null;
+  availability?: {
+    isOrderable?: boolean | null;
+  } | null;
+}
+
+export interface SearchFacetOption {
+  name: string;
+  value: string | boolean;
+  matches: number;
+  selected: boolean;
+}
+
+export interface SearchFacetInfo {
+  label: string;
+  name: string;
+  type?: string | null;
+  options?: SearchFacetOption[] | null;
+}
+
+export interface SearchProductsData {
+  searchProducts: {
+    totalFound: number;
+    products: SearchProduct[];
+    facets?: {
+      facets?: SearchFacetInfo[] | null;
+      quickFilters?: SearchFacetInfo[] | null;
+    } | null;
+  };
+}
+
 export interface MemberProfileData {
   member: {
     id: string | number;
