@@ -64,9 +64,10 @@ export class AppieClient {
   public async graphql<T>(
     query: string,
     variables?: Record<string, unknown>,
+    operationName = "Fetch",
   ): Promise<T> {
     const headers = {
-      "x-apollo-operation-name": "Fetch",
+      "x-apollo-operation-name": operationName,
       "x-apollo-operation-type": "query",
     };
 

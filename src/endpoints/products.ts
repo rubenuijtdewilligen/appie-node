@@ -5,6 +5,8 @@ import type {
   Nutrient,
   ProductCard,
   ProductDetailResponse,
+  SearchProductsData,
+  SearchProductsInput,
 } from "../types.js";
 
 export class ProductsFlow {
@@ -52,6 +54,74 @@ export class ProductsFlow {
     });
 
     return mapping;
+  }
+
+  /**
+   * Searches products via GraphQL with full faceted filtering
+   * (brand, Nutri-Score, diet, bonus, etc.).
+   *
+   * Note: this endpoint does not return bonusMechanism text for multi-buy
+   * deals. Use `getMultiple` to enrich results with bonus data.
+   *
+   * @param input Search query, sorting, pagination and facets
+   */
+  public async searchProducts(
+    input: SearchProductsInput,
+  ): Promise<SearchProductsData["searchProducts"]> {
+    const query = `
+      query SearchProducts($input: SearchProductsInput!) {
+        searchProducts(input: $input) {
+          totalFound
+          products {
+            id title brand category salesUnitSize isSponsored
+            priceV2 {
+              now { amount }
+              was { amount }
+              discount { description promotionType segmentType }
+            }
+            imagePack { small { url width height } }
+            availability { isOrderable }
+          }
+          facets {
+            facets { label name type options { name value matches selected } }
+            quickFilters { label name type options { name value matches selected } }
+          }
+        }
+      }
+    `;
+
+    const searchInput: Record<string, unknown> = {
+      query: input.query,
+      page: {
+        number: input.page?.number ?? 0,
+        size: input.page?.size ?? 36,
+      },
+    };
+
+    if (input.facets && input.facets.length > 0) {
+      searchInput.facets = input.facets.map((facet) => ({
+        label: facet.label,
+        values: { values: facet.values.values },
+      }));
+    }
+
+    const response = await this.client.graphql<GraphQLResponse<SearchProductsData>>(
+      query,
+      {
+        input: {
+          query: input.query,
+          sortType: input.sortType ?? "RELEVANCE",
+          searchInput,
+        },
+      },
+      "SearchProducts",
+    );
+
+    if (response.errors) {
+      throw new Error(`GraphQL Error: ${response.errors[0]?.message}`);
+    }
+
+    return response.data.searchProducts;
   }
 
   /**
